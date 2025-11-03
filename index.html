@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo"></div>
+            <ul id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="gradient-text">P Muralidharan</span></h1>
+            <p class="subtitle">Biomedical Engineering Student</p>
+            <div class="gate-badge">GATE 2025 Qualifier - AIR 353</div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Replace with your actual photo -->
+                <img src=Images/image1.jpeg alt="P Muralidharan">
+                <div class="image-border"></div>
+            </div>
+            <div class="about-content">
+    <p>
+        I am a passionate Biomedical Engineering student at Dr. N. G. P. Institute of Technology 
+        with a strong academic record and a proven aptitude for research and innovation, 
+        demonstrated by my All India Rank of 353 in GATE 2025.
+    </p>
+    <p>
+        My technical journey spans both biomedical engineering and software development domains,
+        ranging from medical devices and hospital internships to full-stack development and programming. 
+        I have developed strong proficiency in Java, C, Python, and possess specialized technical expertise in MATLAB and LabVIEW. 
+        My primary focus lies in transforming complex biomedical challenges into sophisticated software solutions that bridge clinical needs with technological innovation.
+    </p>
+    <p>
+        I am particularly passionate about the intersection of healthcare and technology, 
+        with dedicated interests in medical instrumentation, biomedical signal processing, and the development of robust software applications. 
+        My enthusiasm extends to building comprehensive web applications, conducting advanced data analysis, 
+        and creating healthcare-focused software solutions.
+    </p>
+    <div style="margin-top: 2rem; text-align: center;">
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>IoT Intern</h3>
+                        <h4>KrishTec, Coimbatore</h4>
+                    </div>
+                    <span class="experience-date">Jul 2024 (15 days)</span>
+                </div>
+                <ul class="experience-description">
+                    <li>Developed and tested IoT-based systems with focus on sensor integration</li>
+                    <li>Implemented real-time data handling and processing algorithms</li>
+                    <li>Gained practical experience in IoT system architecture and deployment</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">IoT</span>
+                    <span class="tag">Sensor Integration</span>
+                    <span class="tag">Data Processing</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Hospital Intern</h3>
+                        <h4>Multiple Hospitals, Coimbatore</h4>
+                    </div>
+                    <span class="experience-date"></span>
+                </div>
+                <ul class="experience-description">
+                    <li>Completed training at Kumaran Medical Center, Sri Ramakrishna Hospital, and KMCH</li>
+                    <li>Observed clinical device applications in ICU and diagnostic departments</li>
+                    <li>Participated in equipment rounds and maintenance procedures</li>
+                    <li>Gained insight into medical equipment management and troubleshooting</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">Medical Devices</span>
+                    <span class="tag">Clinical Applications</span>
+                    <span class="tag">Equipment Management</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Project Intern</h3>
+                        <h4>International Centre for Clean Water, IIT Madras Research Park, Chennai</h4>
+                    </div>
+                    <span class="experience-date">July 2025 - July 2026</span>
+                </div>
+                <ul class="experience-description">
+                    <li>Test, troubleshoot, and calibrate industrial water sensors</li>
+                    <li>Develop embedded C code for microcontroller-based systems</li>
+                    <li>Integrate and optimize electronic hardware for sensor performance</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">Sensors</span>
+                    <span class="tag">Embedded C</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🩺</div>
+                <div class="project-content">
+                    <h3>Wearable Slot Antenna for Glucose Monitoring</h3>
+                    <p>Designed and simulated a wearable antenna using Ansys HFSS for non-invasive glucose level detection through tear fluid analysis.</p>
+                    <div class="tags">
+                        <span class="tag">Ansys HFSS</span>
+                        <span class="tag">RF Engineering</span>
+                        <span class="tag">Biomedical Sensors</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">👁️</div>
+                <div class="project-content">
+                    <h3>AI-Driven Ophthalmic Disease Detection</h3>
+                    <p>Developed and coordinated testing of a deep learning framework for automated detection of Glaucoma and Retinal Vein Occlusion using retinal images.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Google Colab</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul class="skill-list">
+                    <li>MATLAB & LabVIEW Programming</li>
+                    <li>Python for Data Analysis</li>
+                    <li>Ansys HFSS for RF Design</li>
+                    <li>IoT & Sensor Integration</li>
+                    <li>Medical Device Protocols</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <ul class="skill-list">
+                    <li>C, C++, Java</li>
+                    <li>Python</li>
+                    <li>MATLAB Scripting</li>
+                    <li>LabVIEW Programming</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul class="skill-list">
+                    <li>Analytical & Critical Thinking</li>
+                    <li>Effective Communication</li>
+                    <li>Time Management</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certifications-container">
+            <div class="certification-item">
+                <div class="certification-header">
+                    <div>
+                        <h3>NPTEL Certifications</h3>
+                        <h4>Elite & Elite+Silver Level</h4>
+                    </div>
+                    <span class="certification-date">2023-2024</span>
+                </div>
+                <p class="certification-description">
+                    Earned multiple NPTEL certifications including Biophotonics (Elite+Silver), 
+                    Transducers for Instrumentation (Elite), Problem Solving through Programming in C (Elite), 
+                    Programming in Modern C++, and Deep Learning.
+                </p>
+            </div>
+
+            <div class="certification-item">
+                <div class="certification-header">
+                    <div>
+                        <h3>Technical Training</h3>
+                        <h4>MATLAB, LabVIEW & Biomedical Equipment</h4>
+                    </div>
+                    <span class="certification-date">2024</span>
+                </div>
+                <p class="certification-description">
+                    Completed specialized training in MATLAB and LabVIEW programming, 
+                    signal acquisition modules, automation workflows, and advanced techniques 
+                    in biomedical equipment design and innovation.
+                </p>
+            </div>
+
+            <div class="certification-item">
+                <div class="certification-header">
+                    <div>
+                        <h3>Workshops & Seminars</h3>
+                        <h4>Technical Skill Development</h4>
+                    </div>
+                    <span class="certification-date">2023-2024</span>
+                </div>
+                <p class="certification-description">
+                    Participated in workshops on Data Science, Ultrasound Machine Applications, 
+                    and attended national level seminars on biomedical innovations and 
+                    cognitive rehabilitation technologies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <p style="color: var(--gray); margin-bottom: 2rem;">
+                I'm always open to discussing new projects, research opportunities, or collaborations 
+                in biomedical engineering and software development.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <a href="mailto:muralidharan242005@gmail.com" class="contact-link">muralidharan242005@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <a href="tel:9150750340" class="contact-link">+91 9150750340</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                    <a href="https://www.linkedin.com/in/muralidharan-p-034889250" target="_blank" class="contact-link">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-github"></i></div>
+                    <a href="https://github.com/Murali-dharan-24" target="_blank" class="contact-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 P Muralidharan. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
