@@ -435,20 +435,18 @@ h2::after {
 
 .project-image {
     width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
-    opacity: 0.8;
+    height: 200px; /* You can increase this if you want bigger images */
+    overflow: hidden;
+    border-radius: 15px 15px 0 0; /* smooth rounded corners */
 }
+
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
 
 .project-content {
     padding: 1.5rem;
@@ -761,4 +759,5 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
