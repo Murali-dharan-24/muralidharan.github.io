@@ -438,6 +438,7 @@ h2::after {
     height: 200px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     align-items: center;
+    display: flex;
     justify-content: center;
     font-size: 3rem;
     opacity: 0.8;
@@ -448,6 +449,7 @@ h2::after {
     object-fit: cover;
     display: block;
 }
+
 .project-content {
     padding: 1.5rem;
     flex-grow: 1;
