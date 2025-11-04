@@ -96,6 +96,16 @@ backToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+// Click highlight for contact cards
+document.querySelectorAll('.contact-item').forEach(item => {
+    item.addEventListener('mousedown', () => {
+        item.style.transform = 'scale(0.97)';
+    });
+    item.addEventListener('mouseup', () => {
+        item.style.transform = 'scale(1)';
+    });
+});
+
 // Project card click handlers (you can add functionality here)
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -103,4 +113,10 @@ document.querySelectorAll('.project-card').forEach(card => {
         // For example: open a modal with more details
         console.log('Project card clicked:', card.querySelector('h3').textContent);
     });
+});
+
+// Click animation for contact blocks
+document.querySelectorAll('.contact-item').forEach(item => {
+    item.addEventListener('mousedown', () => item.style.transform = 'scale(0.96)');
+    item.addEventListener('mouseup', () => item.style.transform = 'scale(1)');
 });
