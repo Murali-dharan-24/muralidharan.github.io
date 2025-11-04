@@ -443,13 +443,14 @@ h2::after {
     font-size: 3rem;
     opacity: 0.8;
 }
-
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
+
 .project-content {
     padding: 1.5rem;
     flex-grow: 1;
@@ -761,4 +762,3 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-
