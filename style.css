@@ -174,10 +174,12 @@ nav a.active {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    padding: 0.5rem 1.5rem;
+    margin-top: -0.3rem;
+    margin-bottom: 1.8rem;
+    padding: 0.45rem 1.4rem;
+    font-size: 0.95rem;
     border-radius: 50px;
     font-weight: 600;
-    margin-top: 1rem;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
     animation: fadeInUp 1s ease-out 0.4s backwards;
 }
@@ -731,6 +733,23 @@ footer {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
+    /* Better spacing for GATE badge */
+/* Make contact card clickable */
+.contact-item {
+    text-decoration: none;
+    color: var(--light);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.contact-item:hover .contact-link {
+    color: var(--primary);
+}
+
 
     .projects-grid {
         grid-template-columns: 1fr;
