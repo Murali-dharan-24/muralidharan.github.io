@@ -24,7 +24,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated Background */
+/* Enhanced Animated Background */
 .bg-animation {
     position: fixed;
     top: 0;
@@ -33,6 +33,7 @@ body {
     height: 100%;
     z-index: -1;
     background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+    overflow: hidden;
 }
 
 .bg-animation::before {
@@ -59,10 +60,42 @@ body {
     animation: float 15s infinite ease-in-out reverse;
 }
 
+.floating-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    animation: float-particle 25s infinite linear;
+}
+
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(100px, -100px) rotate(120deg); }
-    66% { transform: translate(-100px, 100px) rotate(240deg); }
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(100px, -100px) rotate(120deg); 
+    }
+    66% { 
+        transform: translate(-100px, 100px) rotate(240deg); 
+    }
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* Navigation */
@@ -98,6 +131,11 @@ nav .container {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 nav ul {
@@ -151,6 +189,7 @@ nav a.active {
     justify-content: center;
     text-align: center;
     padding: 0 5%;
+    position: relative;
 }
 
 .hero-content h1 {
@@ -181,7 +220,7 @@ nav a.active {
     border-radius: 50px;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-    animation: fadeInUp 1s ease-out 0.4s backwards;
+    animation: fadeInUp 1s ease-out 0.4s backwards, pulse 2s infinite;
 }
 
 .gradient-text {
@@ -208,6 +247,23 @@ nav a.active {
     text-decoration: none;
     display: inline-block;
     font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
@@ -243,11 +299,31 @@ nav a.active {
     }
 }
 
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+}
+
 /* Section Styles */
 section {
     padding: 5rem 5%;
     max-width: 1200px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
@@ -343,6 +419,13 @@ h2::after {
     border: 1px solid rgba(99, 102, 241, 0.2);
     margin-bottom: 2rem;
     transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.experience-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .experience-item:hover {
@@ -405,6 +488,20 @@ h2::after {
     flex-wrap: wrap;
 }
 
+.tag {
+    padding: 0.3rem 0.8rem;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary);
+    transition: all 0.3s;
+}
+
+.tag:hover {
+    background: rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+}
+
 /* Projects Grid */
 .projects-grid {
     display: grid;
@@ -425,6 +522,13 @@ h2::after {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-card:hover {
@@ -435,9 +539,14 @@ h2::after {
 
 .project-image {
     width: 100%;
-    height: 200px; /* You can increase this if you want bigger images */
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    opacity: 0.8;
     overflow: hidden;
-    border-radius: 15px 15px 0 0; /* smooth rounded corners */
 }
 
 .project-image img {
@@ -445,8 +554,12 @@ h2::after {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
 }
 
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
 
 .project-content {
     padding: 1.5rem;
@@ -472,14 +585,6 @@ h2::after {
     flex-wrap: wrap;
 }
 
-.tag {
-    padding: 0.3rem 0.8rem;
-    background: rgba(99, 102, 241, 0.2);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--primary);
-}
-
 /* Skills Section */
 .skills-container {
     display: grid;
@@ -493,6 +598,13 @@ h2::after {
     border-radius: 15px;
     border: 1px solid rgba(99, 102, 241, 0.2);
     transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.skill-category.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .skill-category:hover {
@@ -514,6 +626,11 @@ h2::after {
     color: var(--gray);
     position: relative;
     padding-left: 1.5rem;
+    transition: color 0.3s;
+}
+
+.skill-list li:hover {
+    color: var(--light);
 }
 
 .skill-list li::before {
@@ -536,6 +653,13 @@ h2::after {
     border: 1px solid rgba(99, 102, 241, 0.2);
     margin-bottom: 2rem;
     transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.certification-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .certification-item:hover {
@@ -600,6 +724,15 @@ h2::after {
     background: rgba(30, 41, 59, 0.3);
     border-radius: 10px;
     border: 1px solid rgba(99, 102, 241, 0.1);
+    text-decoration: none;
+    color: var(--light);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.contact-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contact-item:hover {
@@ -617,6 +750,11 @@ h2::after {
     justify-content: center;
     font-size: 1.5rem;
     color: white;
+    transition: transform 0.3s;
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.1);
 }
 
 .contact-link {
@@ -626,7 +764,7 @@ h2::after {
     font-weight: 500;
 }
 
-.contact-link:hover {
+.contact-item:hover .contact-link {
     color: var(--primary);
 }
 
@@ -738,26 +876,46 @@ footer {
         gap: 1.5rem;
     }
 
-    /* Better spacing for GATE badge */
-/* Make contact card clickable */
-.contact-item {
-    text-decoration: none;
-    color: var(--light);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-}
-
-.contact-item:hover .contact-link {
-    color: var(--primary);
-}
-
-
     .projects-grid {
         grid-template-columns: 1fr;
     }
 }
+/* Ripple animation for project cards */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
 
+/* Faster animations */
+section {
+    transition: all 0.4s ease-out;
+}
 
+.experience-item,
+.project-card,
+.skill-category,
+.certification-item,
+.contact-item {
+    transition: all 0.3s ease-out;
+}
+
+/* Instant hover feedback */
+.nav-link:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Smoother image transitions */
+.about-image img {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-image img {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
