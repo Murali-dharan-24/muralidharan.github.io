@@ -318,7 +318,7 @@ section {
     margin: 0 auto;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 section.visible {
@@ -368,7 +368,7 @@ h2::after {
     position: relative;
     z-index: 2;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .about-image img:hover {
@@ -418,7 +418,7 @@ h2::after {
     border-radius: 15px;
     border: 1px solid rgba(99, 102, 241, 0.2);
     margin-bottom: 2rem;
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
     opacity: 0;
     transform: translateY(20px);
 }
@@ -518,12 +518,13 @@ h2::after {
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid rgba(99, 102, 241, 0.2);
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     opacity: 0;
     transform: translateY(20px);
+    position: relative;
 }
 
 .project-card.visible {
@@ -554,7 +555,7 @@ h2::after {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-card:hover .project-image img {
@@ -597,7 +598,7 @@ h2::after {
     padding: 2rem;
     border-radius: 15px;
     border: 1px solid rgba(99, 102, 241, 0.2);
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
     opacity: 0;
     transform: translateY(20px);
 }
@@ -652,7 +653,7 @@ h2::after {
     border-radius: 15px;
     border: 1px solid rgba(99, 102, 241, 0.2);
     margin-bottom: 2rem;
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
     opacity: 0;
     transform: translateY(20px);
 }
@@ -809,6 +810,14 @@ footer {
     box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
+/* Ripple animation for project cards */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero-content h1 {
@@ -879,43 +888,4 @@ footer {
     .projects-grid {
         grid-template-columns: 1fr;
     }
-}
-/* Ripple animation for project cards */
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* Faster animations */
-section {
-    transition: all 0.4s ease-out;
-}
-
-.experience-item,
-.project-card,
-.skill-category,
-.certification-item,
-.contact-item {
-    transition: all 0.3s ease-out;
-}
-
-/* Instant hover feedback */
-.nav-link:hover {
-    color: var(--primary);
-    transform: translateY(-1px);
-}
-
-.btn:hover {
-    transform: translateY(-2px) scale(1.02);
-}
-
-/* Smoother image transitions */
-.about-image img {
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.project-image img {
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
