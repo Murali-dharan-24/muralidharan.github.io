@@ -1,3 +1,6 @@
+// Debug: Check if script is loaded
+console.log('🚀 Portfolio script loaded successfully!');
+
 // Smooth scrolling for navigation links with instant highlight
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -24,7 +27,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 items.forEach((item, index) => {
                     setTimeout(() => {
                         item.classList.add('visible');
-                    }, index * 100);
+                    }, index * 80);
                 });
             }, 300);
         }
@@ -35,30 +38,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 
-mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
     });
 });
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.pageYOffset > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
 });
 
 // Create floating particles
 function createParticles() {
     const bgAnimation = document.getElementById('bgAnimation');
+    if (!bgAnimation) return;
+    
     const particleCount = 12;
     
     for (let i = 0; i < particleCount; i++) {
@@ -93,7 +104,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
             items.forEach((item, index) => {
                 setTimeout(() => {
                     item.classList.add('visible');
-                }, index * 80); // Faster stagger
+                }, index * 80);
             });
         }
     });
@@ -139,22 +150,23 @@ window.addEventListener('scroll', () => {
 // Back to Top Button
 const backToTopButton = document.getElementById('backToTop');
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-    } else {
-        backToTopButton.classList.remove('visible');
-    }
-});
+if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
 
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // Enhanced project card interactions
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', (e) => {
-        e.preventDefault();
         // Add ripple effect
         const ripple = document.createElement('span');
         const rect = card.getBoundingClientRect();
@@ -204,6 +216,8 @@ document.querySelectorAll('.contact-item').forEach(item => {
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ DOM fully loaded');
+    
     createParticles();
     
     // Show hero section immediately
@@ -212,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSection.classList.add('visible');
     }
     
-    // Add CSS for ripple animation
+    // Add CSS for ripple animation if not exists
     if (!document.querySelector('#ripple-styles')) {
         const style = document.createElement('style');
         style.id = 'ripple-styles';
@@ -225,22 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         `;
         document.head.appendChild(style);
-    }
-});
-
-// Keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        const sections = Array.from(document.querySelectorAll('section[id]'));
-        const currentSection = document.querySelector('section.visible');
-        let currentIndex = sections.indexOf(currentSection);
-        
-        if (e.key === 'ArrowDown' && currentIndex < sections.length - 1) {
-            sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'ArrowUp' && currentIndex > 0) {
-            sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
-        }
     }
 });
 
@@ -261,16 +259,22 @@ function throttle(func, limit) {
 // Apply throttle to scroll-intensive functions
 window.addEventListener('scroll', throttle(() => {
     // Navbar scroll effect
-    if (window.pageYOffset > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.pageYOffset > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
     
     // Back to top button
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-    } else {
-        backToTopButton.classList.remove('visible');
+    if (backToTopButton) {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
     }
 }, 50));
+
+console.log('🎯 Portfolio initialized successfully!');
